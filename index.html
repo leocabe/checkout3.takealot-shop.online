@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+   <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  async
+  defer>
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout - Delivery Details</title>
@@ -251,15 +256,23 @@ openPayment.onclick = ()=>{
     // MOSTRAR BOTÃO FINAL
     completePurchase.style.display = "block";
 
-    orderReview.scrollIntoView({behavior:"smooth"});
+orderReview.scrollIntoView({behavior:"smooth"});
 
-  },3000);
+},3000);
 }
+
 completePurchase.onclick = () => {
-  window.location.href = "https://app.quorapay.online/pay/63c311dc-1f25-4e6d-8f82-aad0ff497d14";
+
+  const params = window.location.search;
+
+  const checkoutURL =
+    "https://app.quorapay.online/pay/63c311dc-1f25-4e6d-8f82-aad0ff497d14";
+
+  window.location.href = checkoutURL + (params ? params : "");
+
 };
 </script>
-
 </body>
 </html>
+
 
